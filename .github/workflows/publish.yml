@@ -20,10 +20,8 @@ jobs:
         with:
           node-version: '18'
       - name: Install Dependencies
-        run: |
-          printf "@unipolmovecity:registry=https://npm.deployment.unipolmove.city/repository/npm/\n//npm.deployment.unipolmove.city/repository/npm/:_authToken=NpmToken.${PRIVATE_NPM_TOKEN}" > ~/.npmrc
-          yarn
-      - run: yarn test
+        run: yarn
+      - run: yarn run test
   publish:
     if: ${{ github.event_name != 'pull_request' }}
     needs: ['test']
