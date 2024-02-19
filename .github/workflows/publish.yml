@@ -2,10 +2,10 @@ name: Publish Package
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 env:
   PRIVATE_NPM_TOKEN: ${{ secrets.PRIVATE_NPM_TOKEN }}
 #  CODECOV_TOKEN: ${{ secrets.CODECOV_FETCH_PHRASE_TOKEN }}
@@ -23,10 +23,7 @@ jobs:
         run: |
           printf "@unipolmovecity:registry=https://npm.deployment.unipolmove.city/repository/npm/\n//npm.deployment.unipolmove.city/repository/npm/:_authToken=NpmToken.${PRIVATE_NPM_TOKEN}" > ~/.npmrc
           yarn
-      - run: yarn eslint
-      - run: yarn prettier
       - run: yarn test
-  #      - run: npx codecov
   publish:
     if: ${{ github.event_name != 'pull_request' }}
     needs: ['test']
