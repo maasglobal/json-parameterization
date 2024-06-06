@@ -1,5 +1,8 @@
 {
   "name": "@maasglobal/json-parameterization",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "version": "2.0.2",
   "author": "Jonas Finnemann Jensen <jopsen@gmail.com>",
   "description": "Parameterization of JSON structures",
@@ -9,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/taskcluster/json-parameterization"
+    "url": "https://github.com/maasglobal/json-parameterization"
   },
   "dependencies": {
     "lodash": "^4.17.19",
